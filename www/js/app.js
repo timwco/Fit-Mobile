@@ -41,6 +41,15 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     }
   })
 
+  .state('app.cardio', {
+    url: '/cardio',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/cardio.html'
+      }
+    }
+  })
+
   .state('app.day', {
     url: '/day/:day',
     views: {
@@ -49,7 +58,27 @@ angular.module('starter', ['ionic', 'starter.controllers'])
         controller: 'DayController'
       }
     }
+  })
+
+  .state('app.excercise', {
+    url: '/excercise/:id',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/excercise.html',
+        controller: 'ExcerciseController'
+      }
+    }
   });
+
+  // .state('app.add', {
+  //   url: '/add',
+  //   views: {
+  //     'menuContent': {
+  //       templateUrl: 'templates/add.html',
+  //       controller: 'AddController'
+  //     }
+  //   }
+  // });
 
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app/home');

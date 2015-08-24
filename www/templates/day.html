@@ -1,5 +1,9 @@
 <ion-view view-title="Day {{ day }}">
   <ion-content>
-    <h1>Day {{ day }}</h1>
+    <ul class="list">
+      <li class="item" ng-repeat="e in excercises" ng-click="loadExcercise(e)">
+        {{ e.name }}
+      </li>
+    </ul>
   </ion-content>
-</ion-view
+</ion-view>

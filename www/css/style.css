@@ -1,1 +1,12 @@
-/* Empty. Add your own CSS if you like */
+.button-bottom {
+  margin-bottom: -1px;
+}
+.backBtn {
+  margin-left: 10px;
+  background-color: rgba(224,234,241,1);
+  border-radius: 5px;
+  padding: 5px 10px;
+  color: rgba(0,119,204,1);
+  cursor: pointer;
+  display: inline-block;
+}

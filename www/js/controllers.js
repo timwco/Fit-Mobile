@@ -1,5 +1,15 @@
 angular.module('starter.controllers', [])
 
+.constant('PARSE', {
+  URL: 'https://api.parse.com/1/',
+  CONFIG: {
+    headers: {
+     'X-Parse-Application-Id' : 'h3WW0SVCjalXilChtmALBDPXsoiDESLqs1RjX6vp',
+     'X-Parse-REST-API-Key'  : 'YZggZy5EGS7fSeaLHyV5FGjRsmk9UjQTamk0zBZ5'
+    }
+  }
+})
+
 .controller('AppCtrl', function($scope, $ionicModal, $timeout) {
 
   // With the new view caching in Ionic, Controllers are only called
@@ -8,6 +18,7 @@ angular.module('starter.controllers', [])
   // listen for the $ionicView.enter event:
   //$scope.$on('$ionicView.enter', function(e) {
   //});
+
 
   // Form data for the login modal
   $scope.loginData = {};
@@ -41,23 +52,55 @@ angular.module('starter.controllers', [])
   };
 })
 
-.controller('PlaylistsCtrl', function($scope) {
-  $scope.playlists = [
-    { title: 'Reggae', id: 1 },
-    { title: 'Chill', id: 2 },
-    { title: 'Dubstep', id: 3 },
-    { title: 'Indie', id: 4 },
-    { title: 'Rap', id: 5 },
-    { title: 'Cowbell', id: 6 }
-  ];
-})
-
-.controller('PlaylistCtrl', function($scope, $stateParams) {
-})
-
-
-.controller('DayController', function ($scope, $stateParams) {
+.controller('DayController', function ($scope, $stateParams, PARSE, $http, $state) {
 
   $scope.day = $stateParams.day;
+  $scope.excercises;
+
+  $http({
+    method: 'GET',
+    url: PARSE.URL + 'classes/excercise',
+    params: {
+      where: '{"day":"' + $stateParams.day + '"}'
+    },
+    headers: PARSE.CONFIG.headers
+  }).success( function (res) {
+    $scope.excercises = res.results;
+  });
+
+  $scope.loadExcercise = function (single) {
+    $state.go('app.excercise', { id: single.objectId });
+  };
+
+})
+
+.controller('ExcerciseController', function ($scope, $stateParams, PARSE, $http, $ionicHistory) {
+
+  $scope.excercise;
+
+  $http({
+    method: 'GET',
+    url: PARSE.URL + 'classes/excercise/' + $stateParams.id,
+    headers: PARSE.CONFIG.headers,
+    cache: true
+  })
+  .success( function (res) {
+    $scope.excercise = res;
+  });
+
+  $scope.goBack = function () {
+    $ionicHistory.goBack();
+  };
+
+})
+
+.controller('AddController', function ($scope, PARSE, $http) {
+
+  // $scope.addExcercise = function (data) {
+  //   $http.post(PARSE.URL + 'classes/excercise', data, PARSE.CONFIG)
+  //   .success( function (res) {
+  //     console.log(res);
+  //   });
+  // }
 
 });
