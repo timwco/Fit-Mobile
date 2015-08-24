@@ -74,7 +74,7 @@ angular.module('starter.controllers', [])
 
 })
 
-.controller('ExcerciseController', function ($scope, $stateParams, PARSE, $http, $ionicHistory) {
+.controller('ExcerciseController', function ($scope, $stateParams, PARSE, $http) {
 
   $scope.excercise;
 
@@ -87,10 +87,6 @@ angular.module('starter.controllers', [])
   .success( function (res) {
     $scope.excercise = res;
   });
-
-  $scope.goBack = function () {
-    $ionicHistory.goBack();
-  };
 
   // Add Entry
   $scope.entry = {
