@@ -92,6 +92,33 @@ angular.module('starter.controllers', [])
     $ionicHistory.goBack();
   };
 
+  // Add Entry
+  $scope.entry = {
+    set: 1, reps: 10
+  };
+  $scope.addEntry = function (entry, excercise) {
+
+    entry.set = Number(entry.set);
+    entry.reps = Number(entry.reps);
+
+    var data = {
+      excercise: {
+        '__type': 'Pointer',
+        'className': 'excercise',
+        'objectId': excercise.objectId,
+      },
+      set: entry.set,
+      reps: entry.reps,
+      weight: entry.weight
+    }
+
+    $http.post(PARSE.URL + 'classes/entry', data, PARSE.CONFIG)
+    .success( function (res) {
+      console.log(res);
+    });
+
+  };
+
 })
 
 .controller('AddController', function ($scope, PARSE, $http) {

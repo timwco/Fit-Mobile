@@ -11,7 +11,7 @@
     <span class="backBtn" ng-click="goBack()">< Back to Excercises</span>
     <div class="card">
       <div class="item item-divider">Log</div>
-      <form ng-submit="addEntry(entry)">
+      <form ng-submit="addEntry(entry, excercise)">
         <div class="list">
           <div class="item range">
             <i class="">Set</i>
@@ -19,7 +19,7 @@
             <i class="">{{ entry.set || 0 }}</i>
           </div>
           <label class="item item-input">
-            <input placeholder="Weight" type="number" ng-model="entry.number">
+            <input placeholder="Weight" type="number" ng-model="entry.weight">
           </label>
           <div class="item range">
             <i class="">Reps</i>
