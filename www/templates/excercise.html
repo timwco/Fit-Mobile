@@ -8,6 +8,11 @@
       <div class="item item-divider">Notes:</div>
       <div class="item item-text-wrap">{{ excercise.notes }}</div>
     </div>
+    <div class="card" ng-show="message">
+      <div class="item item-text-wrap alertColor">
+        {{ message }}
+      </div>
+    </div>
     <div class="card">
       <div class="item item-divider">Log</div>
       <form ng-submit="addEntry(entry, excercise)">
@@ -26,7 +31,7 @@
             <i class="">{{ entry.reps || 0 }}</i>
           </div>
         </div>
-        <button class="button button-full button-positive button-bottom">Add Excercise</button>
+        <button class="button button-full button-dark button-bottom">Log Set</button>
       </form>
     </div>
   </ion-content>

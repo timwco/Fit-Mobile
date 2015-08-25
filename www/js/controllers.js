@@ -77,6 +77,7 @@ angular.module('starter.controllers', [])
 .controller('ExcerciseController', function ($scope, $stateParams, PARSE, $http) {
 
   $scope.excercise;
+  $scope.message;
 
   $http({
     method: 'GET',
@@ -108,10 +109,14 @@ angular.module('starter.controllers', [])
       weight: entry.weight
     }
 
-    $http.post(PARSE.URL + 'classes/entry', data, PARSE.CONFIG)
-    .success( function (res) {
-      console.log(res);
-    });
+    // $http.post(PARSE.URL + 'classes/entry', data, PARSE.CONFIG)
+    // .success( function (res) {
+    //   console.log(res);
+    // });
+
+    // Clear Data & Show Message
+    $scope.entry = { set: 1, reps: 10 };
+    $scope.message = 'Logged Set: ' + entry.set;
 
   };
 
