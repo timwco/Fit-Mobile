@@ -109,14 +109,13 @@ angular.module('starter.controllers', [])
       weight: entry.weight
     }
 
-    // $http.post(PARSE.URL + 'classes/entry', data, PARSE.CONFIG)
-    // .success( function (res) {
-    //   console.log(res);
-    // });
+    $http.post(PARSE.URL + 'classes/entry', data, PARSE.CONFIG)
+    .success( function (res) {
+      // Clear Data & Show Message
+      $scope.entry = { set: 1, reps: 10 };
+      $scope.message = 'Logged Set: ' + entry.set;
+    });
 
-    // Clear Data & Show Message
-    $scope.entry = { set: 1, reps: 10 };
-    $scope.message = 'Logged Set: ' + entry.set;
 
   };
 
