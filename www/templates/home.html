@@ -1,11 +1,12 @@
-<ion-view view-title="Home">
+<ion-view view-title="Journey to Fit">
   <ion-content>
     <div class="card">
       <div class="item item-text-wrap">
-        <h1>Welcome</h1>
-        <p>
-          Let's Do This!
-        </p>
+        <blockquote>
+          Fitness is not about being better than someone else... it's about being better than you used to be.
+        </blockquote>
+        <button class="button button-block button-positive" ng-click="login()" ng-hide="loggedIn">Log In</button>
+        <button class="button button-block button-assertive" ng-click="logout()" ng-show="loggedIn">Log Out</button>
       </div>
     </div>
   </ion-content>

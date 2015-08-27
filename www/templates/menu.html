@@ -14,9 +14,9 @@
 
   <ion-side-menu side="left">
     <ion-header-bar class="bar-balanced">
-      <h1 class="title">Training</h1>
+      <h1 class="title">Schedule</h1>
     </ion-header-bar>
-    <ion-content>
+    <ion-content ng-show="loggedIn">
       <ion-list>
         <ion-item menu-close href="#/app">Start</ion-item>
         <ion-item menu-close href="#/app/day/1">Day 1</ion-item>
@@ -26,6 +26,13 @@
         <ion-item menu-close href="#/app/cardio">Cardio Sessions</ion-item>
         <!-- <ion-item menu-close href="#/app/add">Add Excercise</ion-item> -->
       </ion-list>
+    </ion-content>
+    <ion-content ng-hide="loggedIn">
+      <div class="card">
+        <div class="item item-text-wrap">
+          Please log in before in order to view this data.
+        </div>
+      </div>
     </ion-content>
   </ion-side-menu>
 </ion-side-menus>

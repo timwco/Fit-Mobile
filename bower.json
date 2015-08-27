@@ -6,6 +6,7 @@
     "ionic-service-core": "~0.1.10"
   },
   "dependencies": {
+    "angular-cookies": "~1.4.4",
     "ionic-material": "~0.4.2",
     "robotodraft": "~1.1.0"
   }
