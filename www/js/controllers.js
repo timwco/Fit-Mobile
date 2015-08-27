@@ -71,7 +71,7 @@ angular.module('starter.controllers', ['ngCookies'])
   $scope.day = $stateParams.day;
   $scope.excercises;
 
-  if (UserService.isLogedIn()) {
+  if (UserService.isLoggedIn()) {
     $http({
       method: 'GET',
       url: PARSE.URL + 'classes/excercise',
@@ -96,7 +96,7 @@ angular.module('starter.controllers', ['ngCookies'])
   $scope.excercise;
   $scope.message;
 
-  if (UserService.isLogedIn()) {
+  if (UserService.isLoggedIn()) {
 
     $http({
       method: 'GET',
