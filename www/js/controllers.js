@@ -119,6 +119,7 @@ angular.module('starter.controllers', ['ngCookies'])
 
       entry.set = Number(entry.set);
       entry.reps = Number(entry.reps);
+      entry.weight = Number(entry.weight);
 
       var data = {
         excercise: {
