@@ -2,7 +2,15 @@
   margin-bottom: -1px !important;
 }
 
-.alertColor {
+.successColor {
   background-color: rgba(51,205,95,1);
+  color: white;
+}
+.loadingColor {
+  background-color: rgba(17,193,243,1);
+  color: white;
+}
+.errorColor {
+  background-color: rgba(239,71,58,1);
   color: white;
 }

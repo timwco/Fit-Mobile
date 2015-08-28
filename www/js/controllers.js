@@ -19,6 +19,9 @@ angular.module('starter.controllers', ['ngCookies'])
   //$scope.$on('$ionicView.enter', function(e) {
   //});
 
+  // Check Login RIGHT NA
+  UserService.checkStatus();
+
 
   // Form data for the login modal
   $scope.loginData = {};
@@ -128,10 +131,17 @@ angular.module('starter.controllers', ['ngCookies'])
         weight: entry.weight
       }
 
+      $scope.message = 'Saving...';
+      $scope.loadClass = 'loadingColor';
+
       $http.post(PARSE.URL + 'classes/entry', data, PARSE.CONFIG)
+      .error( function (res) {
+        $scope.loadClass = 'errorColor';
+        $scope.message = 'ERROR: ' + res.error;
+      })
       .success( function (res) {
-        // Clear Data & Show Message
-        $scope.entry = { set: 1, reps: 10 };
+        $scope.entry = { set: entry.set + 1, reps: entry.reps, weight: entry.weight };
+        $scope.loadClass = 'successColor';
         $scope.message = 'Logged Set: ' + entry.set;
       });
 

@@ -9,9 +9,7 @@
       <div class="item item-text-wrap">{{ excercise.notes }}</div>
     </div>
     <div class="card" ng-show="message">
-      <div class="item item-text-wrap alertColor">
-        {{ message }}
-      </div>
+      <div class="item item-text-wrap {{ loadClass }}">{{ message }}</div>
     </div>
     <div class="card">
       <div class="item item-divider">Log</div>
@@ -23,7 +21,7 @@
             <i class="">{{ entry.set || 0 }}</i>
           </div>
           <label class="item item-input">
-            <input placeholder="Weight" type="number" ng-model="entry.weight">
+            <input placeholder="Weight" type="tel" ng-model="entry.weight">
           </label>
           <div class="item range">
             <i class="">Reps</i>
