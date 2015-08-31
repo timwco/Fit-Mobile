@@ -14,3 +14,10 @@
   background-color: rgba(239,71,58,1);
   color: white;
 }
+.exInfo span {
+  padding-left: 40px;
+}
+.lastWeight {
+  background-color: rgba(51,205,95,1);
+  color: white;
+}

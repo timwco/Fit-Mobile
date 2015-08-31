@@ -30,7 +30,6 @@ angular.module('starter.controllers')
       headers: PARSE.CONFIG.headers,
       params: user
     }).success( function (data) {
-      console.log(data);
       $cookies.put('session-token', data.sessionToken);
       self.checkStatus();
       $rootScope.$broadcast('user:loggedin');

@@ -19,6 +19,15 @@ angular.module('starter.controllers', ['ngCookies'])
   //$scope.$on('$ionicView.enter', function(e) {
   //});
 
+  // Root Change
+  $rootScope.$on('user:statusChange', function () {
+    if(UserService.isLoggedIn()) {
+      $scope.loggedIn = true;
+    } else {
+      $scope.loggedIn = false;
+    }
+  });
+
   // Check Login RIGHT NA
   UserService.checkStatus();
 
@@ -49,8 +58,6 @@ angular.module('starter.controllers', ['ngCookies'])
 
   // Perform the login action when the user submits the login form
   $scope.doLogin = function() {
-    console.log('Doing login', $scope.loginData);
-
     UserService.login($scope.loginData);
 
     $rootScope.$on('user:loggedin', function () {
@@ -58,13 +65,6 @@ angular.module('starter.controllers', ['ngCookies'])
     });
   };
 
-  $rootScope.$on('user:statusChange', function () {
-    if(UserService.isLoggedIn()) {
-      $scope.loggedIn = true;
-    } else {
-      $scope.loggedIn = false;
-    }
-  });
 
 
 })
@@ -101,6 +101,7 @@ angular.module('starter.controllers', ['ngCookies'])
 
   if (UserService.isLoggedIn()) {
 
+    // Get the Excercise
     $http({
       method: 'GET',
       url: PARSE.URL + 'classes/excercise/' + $stateParams.id,
@@ -111,10 +112,21 @@ angular.module('starter.controllers', ['ngCookies'])
       $scope.excercise = res;
     });
 
+    // Get latest reps for excercise
+    $http({
+      method: 'GET',
+      url: PARSE.URL + 'classes/entry',
+      headers: PARSE.CONFIG.headers,
+      params: {
+        where: '{"excercise":{"__type":"Pointer","className":"excercise","objectId":"' + $stateParams.id + '"}}'
+      },
+      cache: true
+    }).success( function (res) {
+      $scope.lastWeight = res.results[0].weight;
+      $scope.entry = { set: 1, reps: 10, weight: $scope.lastWeight };
+    });
+
     // Add Entry
-    $scope.entry = {
-      set: 1, reps: 10
-    };
     $scope.addEntry = function (entry, excercise) {
 
       entry.set = Number(entry.set);

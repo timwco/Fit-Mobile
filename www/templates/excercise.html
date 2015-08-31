@@ -1,10 +1,13 @@
 <ion-view view-title="Excercise Detail">
   <ion-content>
-    <div class="card">
+    <div class="card exInfo">
+      <div class="item item-divider lastWeight">Last Weight: {{ lastWeight }} lbs</div>
       <div class="item item-divider">{{ excercise.name }}</div>
-      <div class="item item-text-wrap"><b>Reps</b>: {{ excercise.reps }}</div>
-      <div class="item item-text-wrap"><b>Sets</b>: {{ excercise.sets }}</div>
-      <div class="item item-text-wrap"><b>Tempo</b>: {{ excercise.tempo }}</div>
+      <div class="item item-text-wrap">
+        <b>Reps</b>: {{ excercise.reps }}
+        <span><b>Sets</b>: {{ excercise.sets }}</span>
+        <span><b>Tempo</b>: {{ excercise.tempo }}</span>
+      </div>
       <div class="item item-divider">Notes:</div>
       <div class="item item-text-wrap">{{ excercise.notes }}</div>
     </div>
