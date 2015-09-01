@@ -10,7 +10,7 @@ angular.module('starter.controllers', ['ngCookies'])
   }
 })
 
-.controller('AppCtrl', function($scope, $ionicModal, $timeout, $cookies, UserService, $rootScope) {
+.controller('AppCtrl', function($scope, $ionicModal, $timeout, $cookies, UserService, $rootScope, QuoteService) {
 
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
@@ -65,7 +65,8 @@ angular.module('starter.controllers', ['ngCookies'])
     });
   };
 
-
+  //Get Random Fitness Quote
+  $scope.quote = QuoteService.randomQuote();
 
 })
 

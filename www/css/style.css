@@ -33,3 +33,15 @@
   padding-right: 10px;
   vertical-align: sub;
 }
+
+
+body .quoteArea {
+  text-align: center;
+}
+body .quote {
+  font-style: italic;
+}
+body .quoteAuthor {
+  font-size: 11px;
+  padding-top: 7px;
+}
