@@ -41,15 +41,6 @@ angular.module('starter', ['ionic','ionic.service.core', 'starter.controllers'])
     }
   })
 
-  .state('app.cardio', {
-    url: '/cardio',
-    views: {
-      'menuContent': {
-        templateUrl: 'templates/cardio.html'
-      }
-    }
-  })
-
   .state('app.day', {
     url: '/day/:day',
     views: {

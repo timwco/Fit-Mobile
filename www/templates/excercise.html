@@ -1,15 +1,16 @@
-<ion-view view-title="Excercise Detail">
+<ion-view view-title="Journey to Fit">
   <ion-content>
     <div class="card exInfo">
       <div class="item item-divider lastWeight">Last Weight: {{ lastWeight }} lbs</div>
-      <div class="item item-divider">{{ excercise.name }}</div>
-      <div class="item item-text-wrap">
+    </div>
+    <div class="card exInfo">
+      <div class="item item-divider exName">{{ excercise.name }}</div>
+      <div class="item item-text-wrap exInfo">
         <b>Reps</b>: {{ excercise.reps }}
         <span><b>Sets</b>: {{ excercise.sets }}</span>
         <span><b>Tempo</b>: {{ excercise.tempo }}</span>
       </div>
-      <div class="item item-divider">Notes:</div>
-      <div class="item item-text-wrap">{{ excercise.notes }}</div>
+      <div class="item item-text-wrap exInfo">{{ excercise.notes }}</div>
     </div>
     <div class="card" ng-show="message">
       <div class="item item-text-wrap {{ loadClass }}">{{ message }}</div>
@@ -32,7 +33,7 @@
             <i class="">{{ entry.reps || 0 }}</i>
           </div>
         </div>
-        <button class="button button-full button-dark button-bottom">Log Set</button>
+        <button class="button button-full button-positive button-bottom">Log Set</button>
       </form>
     </div>
   </ion-content>

@@ -15,9 +15,21 @@
   color: white;
 }
 .exInfo span {
-  padding-left: 40px;
+  padding-left: 25px;
 }
 .lastWeight {
-  background-color: rgba(51,205,95,1);
+  background-color: rgba(104,155,234,1);
   color: white;
+}
+.exName {
+  background-color: rgba(68,68,68,1);
+  color: white;
+}
+.exInfo {
+  font-size: 14px;
+}
+.mainMenu i {
+  font-size: 25px;
+  padding-right: 10px;
+  vertical-align: sub;
 }

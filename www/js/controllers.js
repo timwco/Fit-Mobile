@@ -122,8 +122,9 @@ angular.module('starter.controllers', ['ngCookies'])
       },
       cache: true
     }).success( function (res) {
+      console.log(res);
       $scope.lastWeight = res.results[0].weight;
-      $scope.entry = { set: 1, reps: 10, weight: $scope.lastWeight };
+      $scope.entry = { set: 1, reps: res.results[0].reps, weight: $scope.lastWeight };
     });
 
     // Add Entry
